@@ -1,3 +1,5 @@
-<h1>Welcome</h1>
-<p>This is the landing page for Crumblr, a baking blog made using Ruby on Rails.</p>
-<p>This page is a placeholder and will later be replaced with a cooking blog.</p>
+<% @posts.each do |post| %>
+    <%= render 'posts/post', post: post %>
+
+    <br><br>
+<% end %>

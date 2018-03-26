@@ -1,11 +1,19 @@
 <p>
-    <h2>
-        <%= link_to post.title, post %>
-    </h2>
+  <h2>
+      <%= link_to post.title, post %>
+  </h2>
 
-    <h6 class="text-muted">
-        posted on <%= post.created_at.to_formatted_s(:long) %>
-    </h6>
+  <small class="text-muted float-left">
+      posted on <%= post.created_at.to_formatted_s(:long) %>
+  </small>
+
+  <div class="float-right">
+    <%= form_for(Heart.new) do |f| %>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <%= f.submit post.hearts.count.to_s + " hearts", class: 'btn btn-outline-danger btn-sm' %>
+    <% end %>
+  </div>
+  <br>
 </p>
 
 <p>
